@@ -179,8 +179,10 @@ body {
 
     .icon-mail{
         fill: currentColor;
-        margin-right: 10px; 
+        margin-right: 10px;
+       
     }
+
 
     .menu{
         font-weight: 500;
