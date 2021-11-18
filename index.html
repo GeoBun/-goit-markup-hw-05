@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/modal.js"></script>
 
 </head  >
     <body>
@@ -53,7 +54,7 @@
             <section class="section hiro">
                 <div class="container">
                     <h1 class="hiro-title list">Эффективные решения для вашего бизнеса</h1>
-                    <button  type="button" class="list hiro-btn">Заказать услугу</button>
+                    <button  type="button" class="list hiro-btn" data-modal-open>Заказать услугу</button>
                 </div>
             </section>
             
@@ -310,5 +311,15 @@
              </ul>
             </div>
         </footer>
+        <div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+                <button class="modal-btn list" type="button" data-modal-close>
+                    <svg class="modal-icon">
+                        <use href="./images/symbol-defs.svg#icon-close-black-18dp"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <script src="./js/modal.js"></script>
     </body>
 </html>

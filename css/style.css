@@ -40,6 +40,7 @@ img{
 }
 
 body {  
+    position: relative;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     letter-spacing: 0.03em;
@@ -400,22 +401,27 @@ body {
         color: var(--title-text-color);
     }
 
-    .text-title {
-        margin-top: 0;
-        margin-bottom: 10px;
-
-        font-size: 14px;
-        line-height: 1.14;
-    }
-
-    .list .text-title {
+    .spacing.text-title {
         font-size: 18px;
         line-height: 2;
         color: var(--title-text-color );
     } 
 
-    .list .text-title .name{
+    .features .text-title {
+        margin-top: 30px;
+        margin-bottom: 10px;
+
+        font-size: 14px;
+        line-height: 1.14;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .team .text-title.name{
         font-weight: 500;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.19;
     }
 
     .text{
@@ -425,6 +431,7 @@ body {
         font-size: 14px;
         line-height: 1.71;
         color: var(--primary-text-color);
+        letter-spacing: 0.03em;
     }
 
     /* customers */
@@ -639,3 +646,61 @@ body {
     .spacing .text-title{
         letter-spacing: 0.06em;
     }
+
+    /*  modal window */
+
+    .backdrop{
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+
+        width: 1600px;
+        height: 1024px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .backdrop.is-hidden{
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .modal{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 528px;
+        height: 581px;
+        background: #FFFFFF;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+
+    .modal-btn{
+        position: absolute;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        right: 8px;
+        top: 8px;
+        width: 30px;
+        height: 30px;
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+
+    .modal-icon{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        margin: 0;
+        width: 18px;
+        height: 18px;
+    }
+    
