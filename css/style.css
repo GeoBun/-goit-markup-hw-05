@@ -17,10 +17,14 @@
     --teem-bg-color : #F5F4FA;
     --social-site: #AFB1B8;
 }
+
 *,
 *::after,
 *::before {
     box-sizing: border-box;
+}
+:root{
+    --main-cucubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,
@@ -76,8 +80,6 @@ body {
     }
 
     .head{
-        padding-top: 24px;
-        padding-bottom: 24px;
         border-bottom: 1px solid #ECECEC;
     }
 
@@ -131,10 +133,6 @@ body {
         display: flex;
     }
 
-    .site-nav .link .list.current{
-        color: var(--accent-color);
-    }
-
     .link .text {
         color: var(--title-text-color);
     }
@@ -145,11 +143,6 @@ body {
 
     .site-nav.address {
         margin-left: 305px;
-    }
-
-    .site-nav .link :hover,
-    .site-nav .link :focus {
-        color: var(--accent-color);
     }
 
     .address .link :hover,
@@ -164,6 +157,12 @@ body {
 
     .site-nav.address .link + .link{
         margin-left: 30px;
+    }
+
+    .head .site-nav .item.link{
+        display: block;
+        position: relative;
+        padding: 32px 0;
     }
 
     .contacts{
@@ -186,10 +185,30 @@ body {
 
 
     .menu{
+        padding-bottom: 32px;
         font-weight: 500;
         font-size: 14px;
         line-height: 1.14;
         color: var(--title-text-color );
+    }
+
+    .link .current{
+        color: var(--accent-color);
+    }
+
+
+    .menu.current::after{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+
+        background: #2196F3;
+        border-radius: 2px;
     }
 
      /* buttons */
@@ -309,7 +328,10 @@ body {
         background-position: center;
     } 
 
+    /* Секцыя чем занимаемся */
+    
     .engaged {
+        position: relative;
         display: flex;
         justify-content: center;
     }
@@ -320,6 +342,23 @@ body {
 
     .engaged .item + .item {
         margin-left: 30px;
+    }
+
+    .engaged-thumb{
+        position: absolute;
+        display: block;
+        height: 70px;
+        width: 370px;
+        
+        text-align: center;
+        padding: 27px 0;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        background: rgba(47, 48, 58, 0.8);
+        color: var(--primery-white-color);
+
+        transform: translateY(-100%);
     }
 
     /* our team */
@@ -589,8 +628,42 @@ body {
 
     .portfolio .item{
         display: block;
-        background: #FFFFFF;
+        background: #FFFFFF
+    
     }
+    .portfolio-overlay{
+        width: 370px;
+        height: 294px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+
+    .portfolio-thumb{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        margin: 0;
+        padding: 64px 24px;
+        font-size: 18px;
+        line-height: 1.55;
+        letter-spacing: 0.03em;
+        color: #FFFFFF;
+        background: rgba(33, 150, 243, 0.9);
+
+        opacity: 0;
+        transform: translateY(100%);
+        
+        transition: transform 250ms var(--main-cucubic-bezier),
+        opacity 250ms var(--main-cucubic-bezier);
+    }
+
+    .portfolio .item:hover .portfolio-thumb{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
 
     .portfolio .item +.item{
         margin-left: 30px;
@@ -651,18 +724,20 @@ body {
 
     .backdrop{
         position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%);
-
         width: 1600px;
         height: 1024px;
         background: rgba(0, 0, 0, 0.2);
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: trasform 250ms var(--main-cucubic-bezier),
+        opacity 250ms var(--main-cucubic-bezier);
     }
 
     .backdrop.is-hidden{
         opacity: 0;
         pointer-events: none;
+        transform: translateX(50%);
     }
 
     .modal{
